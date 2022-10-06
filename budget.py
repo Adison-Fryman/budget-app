@@ -49,14 +49,22 @@ class Category:
 
 
   def __repr__(self):
-    return f'******* {self.name} ********'
-    #placeholder for testing, supposed to be an exact string with 30 characters and self.name centered
-    #also a list of the items in the ledger, each line should show the description and amaount.
-    #a line with the total.
+    title = str(self.name).center(30, '*') + '\n'
 
+    items = ""
+    total = 0
+    for item in self.ledger:
+      items += f"{item['description'][0:23]:23}" + f"{item['amount']:7.2f}" + '\n'
+      total += item['amount']
+    return title + items + 'Total: ' + str(total)
 
 
 ### outside of class
-def create_spend_chart(list_cats):
-  return f'string that is a bar chart'
+#def create_spend_chart(list_cats):
+  #return f'string that is a bar chart'
+
+  # this last item is a project in itself, that I feel several while and for loops can account for with significant formating. My time is better served learning SQL and Tableau...sorry codecamp
+
+
+
 
